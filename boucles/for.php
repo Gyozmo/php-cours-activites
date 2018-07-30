@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
 <?php
 
 /*****************************************/
@@ -111,17 +123,17 @@ echo '<br><br>';
 //Créer un tableau pour les mois de l'année et affiché tous les mois de Janvier à Décembre
 //modifier et/ou remplacer les éléments ci-dessous
 echo "8.Les mois depuis le debut de l'annee : <br>";
-$mois = [];
-for ($i = 0; $i < 0; $i) {
-    echo '';
+$mois = ['Janvier','Fevrier','Mars','Avril','Mai','Juin','Juillet','Aout','Septembre','Octobre','Novembre','Decembre',];
+for ($i = 0; $i <= 11; $i++) {
+    echo ' '.$mois[$i];
 }
 echo '<br><br>';
 
 //Afficher les mois de la fin de l'année jusqu'au début de l'année
 //modifier et/ou remplacer les éléments ci-dessous
 echo "9.Les mois depuis la fin de l'annee : <br>";
-for ($i = 0; $i < 0; $i) {
-    echo '';
+for ($i = 11; $i >= 0; $i--) {
+    echo ' '.$mois[$i];
 }
 echo '<br><br>';
 //----------------------------------------
@@ -147,8 +159,31 @@ $college = array(
   ),
 );
 
-echo '10.Les eleves du college : <br>';
+
+$newCollege = array(
+  'Troisieme' => array(
+    array('Nom' => 'Escobar', 'Prenom' => 'Pablo'),
+    array('Nom' => 'Zeke', 'Prenom' => 'peno'),
+    array('Nom' => 'Montana', 'Prenom' => 'Tony'),
+  
+  ));
+
+$college += $newCollege;
+
+echo '10.Les eleves du college : <br>';echo '<br/>';
 //ajoutez votre code ici
+foreach ($college as $classe => $value) {
+  echo '<br/>';
+  echo $classe.'<br>';
+  echo '<BR/>';
+  foreach ($value as $nom => $eleve) {
+    foreach ($eleve as $nom => $prenom) {
+      echo $prenom.' ';
+    }
+    // echo '<br/>';
+  }
+  echo '<br/>';echo '<br/>';
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -156,7 +191,33 @@ echo '<br><br>';
 //reprenez le tableau ci-dessus, ajoutez des éléves pour la classe de troisième et réaffichez tout
 echo '11.Les eleves du college (avec les nouveaux arrivants): <br>';
 //ajoutez votre code ici
+foreach ($college['Troisieme'] as $key => $value0) {
+  foreach ($value0 as $key => $value) {
+    echo $value .' ';
+  }
+}
+
 echo '<br><br>';
+
+
+$newVideotheque = [array(
+    'nom' => 'Le voyage de chihiro',
+    'date' =>'2001',
+    'acteurs' => array(
+      'Chihiro','Haku','Sen'
+    ),
+    'synopsis' => 'Chihiro a la plage', 
+  ),array(
+    'nom' => 'test',
+    'date' =>'2001',
+    'acteurs' => array(
+      'Chihiro','Haku','Sen'
+    ),
+    'synopsis' => 'Chihiro a la plage', 
+  )];
+
+
+
 
 //----------------------------------------
 //Afficher toutes les informations de la vidéothèque
@@ -194,9 +255,29 @@ $videotheque = array(
     ),
   ),
 );
+echo '<br/>'.'<br/>';
 
-echo '12.Mes films : <br>';
-//ajoutez votre code ici
+
+echo '12.Mes films : <br>'.'<br/>'.'<br/>';
+//ajoutez votre code 
+
+$videotheque = array_merge($videotheque, $newVideotheque);
+
+foreach ($videotheque as $key => $value0) {
+  foreach ($value0 as $key => $value1) {
+    if(is_array($value1)){
+      echo $key.' : <br/>';
+      foreach ($value1 as $key => $value) {
+        echo $value;
+      } 
+      echo '<br/><br/>';
+    } else {
+      echo $key.' : '.$value1.'<br>'.'<br/>';
+    }
+    
+  }
+  echo '<br><br>';
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -207,4 +288,11 @@ echo '<br><br>';
 
 echo '13.Mes films : <br>';
 //ajoutez votre code ici
+
+
+
 echo '<br><br>';
+?>
+
+</body>
+</html>
