@@ -22,11 +22,22 @@ echo "<br><br>";
 $animal = "Chien";
 echo "2.Est-ce un chat : ";
 //mettre votre code ici
+if($animal == 'chat'){
+  echo 'oui';
+  } else {
+    echo 'non';
+  }
+  
 echo "<br><br>";
+
 
 //----------------------------------------
 // Écrire la condition qui affiche "Oui" quand $chat vaut true et affiche "Non" dans le cas contraire ###//
 $chat = true;
 echo "3.Est-ce un chat : ";
 //mettre votre code ici
-echo "<br><br>";
+if($chat){
+  echo 'Oui';
+} else {
+  echo 'non';
+}
